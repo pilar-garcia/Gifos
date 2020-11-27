@@ -1,3 +1,11 @@
+// DOM elements SEARCH
+const $searchContainer = document.querySelector('#search_container');
+const $searchResultContainer = document.querySelector('#searchResult');
+const $errorContainer = document.querySelector('#error-container');
+const $searchResultGallery = document.querySelector('#searchResult_gallery');
+const $searchTitle = document.querySelector('#searchResult_title');
+const $verMasbtn = document.querySelector('#verMas-btn');
+
 // TODO ---------------------- Búsqueda ----------------------  \\
 
 let offsetSearch = 0;
