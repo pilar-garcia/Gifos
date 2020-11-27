@@ -43,7 +43,7 @@ const displaySearchGif = (results) => {
 		$verMasbtn.style.display = 'none';
 	}
 
-	for (let i = 0; i < results.data.length; i++) {
+	for (let i = 0; i < 1 /*results.data.length*/; i++) {
 		const gifContainer = document.createElement('div');
 		gifContainer.classList.add('gif_container');
 		gifContainer.innerHTML = ` 
@@ -59,7 +59,7 @@ const displaySearchGif = (results) => {
 				<p class="gif_user">${results.data[i].username}</p>
 				<p class="gif_title">${results.data[i].title}</p>
 			</div>
-			<img class="gif" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')" src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
+			<img class="gif"  src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
 		</div>
 		`;
 		$searchResultGallery.appendChild(gifContainer);
@@ -112,7 +112,7 @@ const getSearchSuggestions = async () => {
 };
 
 const displaySuggestions = (suggestions) => {
-	for (let i = 0; i < suggestions.data.length; i++) {
+	for (let i = 0; i < 1 /*suggestions.data.length*/; i++) {
 		const searchSuggestionItem = document.createElement('li');
 		searchSuggestionItem.classList.add('SearchSuggestions_item');
 		// con los eventos permito que se realicen busquedas al clickear la lupa o el texto

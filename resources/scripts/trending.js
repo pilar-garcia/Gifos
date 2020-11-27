@@ -1,3 +1,7 @@
+
+// DOM elements trending tags
+const $trendingTagList = document.querySelector('#trendingTag_list');
+
 // TODO ---------------------- Trending Styles ----------------------  \\
 // Setea los botones previo y next, de acuerdo al estado y al theme elegido
 const setTrendingBtn = () => {
@@ -64,24 +68,33 @@ const getTrendingGif = async () => {
 getTrendingGif();
 
 const displayTrendingGifs = (results) => {
-	for (let i = 0; i < results.data.length; i++) {
+	for (let i = 0; i < 2 /* results.data.length*/; i++) {
+		let trendingGif = results.data[i];
+		let trendingGifImage = trendingGif.images.original.url;
+		let trendingGifUserName = trendingGif.username;
+		let trendingGifTitle = trendingGif.title;
+
 		const gifContainer = document.createElement('div');
 		gifContainer.classList.add('gif_container');
 		gifContainer.innerHTML = ` 
-		<img class="gif" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')" src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
-	
-		<div class="gifActions">
-			<div class="gifActions_btn">
-				<div class="btn favorite" onclick="addToFav('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
-				<div class="btn download" onclick="downloadGif('${results.data[i].images.original.url}','${results.data[i].title}')"></div>
-				<div class="btn maximize" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
-			</div>
-			<div class="gif_info">
-				<p class="gif_user">${results.data[i].username}</p>
-				<p class="gif_title">${results.data[i].title}</p>
-			</div>
+		<div>
+		
+		<div class="giphy-controls">
+				<img src="resources/assets/icon-fav-active.svg" onclick="addToFav('${trendingGifImage}','${trendingGifUserName}','${trendingGifTitle}')" alt="icon favoritos">
+				<img src="resources/assets/icon-download.svg" onclick="downloadGif('${trendingGifImage}','${trendingGifTitle}')" alt="icon download">
+				<img src="resources/assets/icon-max-normal.svg" onclick="maximizeGif('${trendingGifImage}','${trendingGifUserName}','${trendingGifTitle}')" alt="icon maximize">	
+		</div>
+		<img class="gif" src="${trendingGifImage}" alt="${trendingGifTitle}">
 		</div>
 		`;
+
+		/*
+		info
+		<div class="gif_info">
+			<p class="gif_user">${trendingGifUserName}</p>
+			<p class="gif_title">${trendingGifTitle}</p>
+		</div>
+		*/
 		$trendingSlider.appendChild(gifContainer);
 	}
 };

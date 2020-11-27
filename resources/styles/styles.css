@@ -1030,8 +1030,9 @@ body.darkMode .crearGif .pagination .step {
 
   .giphy-controls{
     position: relative;
-    top: 40px;
-    right: -350px;
+    top: 53px;
+    z-index: 3;
+    right: -189px;
   }
   .gif_container .gifActions_btn {
     width: 8rem;
