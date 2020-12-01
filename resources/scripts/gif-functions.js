@@ -2,7 +2,6 @@
 
 // ---- Favoritear ---- \\
 let arrFavoriteGifs = [];
-let arrMyGifos = [];
 
 const addToFav = (gif, username, title) => {
 	let objGif = {
