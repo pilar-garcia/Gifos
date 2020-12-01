@@ -90,15 +90,13 @@ $misGifosMenu.addEventListener('click', displayMisGifosSection);
 const displayMiGifos = () => {
 	$misGifosContainer.innerHTML = '';
 
-	arrMyGifos = JSON.parse(localStorage.getItem('MyGifs'));
+	let arrMyGif = JSON.parse(localStorage.getItem('MyGifs'));
 
-	console.log(arrMyGifos);
-	if (arrMyGifos == null) {
-		arrMyGifos = [];
-	} else {
-		for (let i = 0; i < arrMyGifos.length; i++) {
+	console.log(arrMyGif);
+	if (arrMyGif != null) {
+		for (let i = 0; i < arrMyGif.length; i++) {
 			fetch(
-				`${getGifByIdEndpoint}?ids=${arrMyGifos[i]}&api_key=${apiKey}`
+				`${getGifByIdEndpoint}?ids=${arrMyGif[i]}&api_key=${apiKey}`
 			)
 				.then((response) => response.json())
 				.then((misGifosGiphy) => {
