@@ -529,7 +529,7 @@ body.darkMode .button:hover {
 .trending {
   padding: 15% 0 8% 0;
   background-color: #f3f5f8;
-  
+  text-align: center;
 }
 
 body.darkMode .trending {
@@ -1027,13 +1027,6 @@ body.darkMode .crearGif .pagination .step {
   .gif_container .gifActions:hover {
     opacity: 100;
   }
-
-  .giphy-controls{
-    position: relative;
-    top: 53px;
-    z-index: 3;
-    right: -189px;
-  }
   .gif_container .gifActions_btn {
     width: 8rem;
     padding: 4%;
@@ -1052,31 +1045,31 @@ body.darkMode .crearGif .pagination .step {
     cursor: pointer;
   }
   .gif_container .favorite {
-    background: url("resources/assets/icon-fav.svg") center no-repeat;
+    background: url("/resources/assets/icon-fav.svg") center no-repeat;
   }
   .gif_container .favorite:hover {
-    background: url("resources/assets/icon-fav-hover.svg") center no-repeat;
+    background: url("/resources/assets/icon-fav-hover.svg") center no-repeat;
   }
   .gif_container .favorite:active {
-    background: url("resources/assets/icon-fav-active.svg") center no-repeat;
+    background: url("/resources/assets/icon-fav-active.svg") center no-repeat;
   }
   .gif_container .download {
-    background: url("resources/assets/icon-download.svg") center no-repeat;
+    background: url("/resources/assets/icon-download.svg") center no-repeat;
   }
   .gif_container .download:hover {
-    background: url("resources/assets/icon-download-hover.svg") center no-repeat;
+    background: url("/resources/assets/icon-download-hover.svg") center no-repeat;
   }
   .gif_container .maximize {
-    background: url("resources/assets/icon-max-normal.svg") center no-repeat;
+    background: url("/resources/assets/icon-max-normal.svg") center no-repeat;
   }
   .gif_container .maximize:hover {
-    background: url("resources/assets/icon-max-hover.svg") center no-repeat;
+    background: url("/resources/assets/icon-max-hover.svg") center no-repeat;
   }
   .gif_container .remove {
-    background: url("resources/assets/icon-trash-normal.svg") center no-repeat;
+    background: url("/resources/assets/icon-trash-normal.svg") center no-repeat;
   }
   .gif_container .remove:hover {
-    background: url("resources/assets/icon-trash-hover.svg") center no-repeat;
+    background: url("/resources/assets/icon-trash-hover.svg") center no-repeat;
   }
   .gif_container .gif_info {
     position: absolute;
@@ -1150,11 +1143,11 @@ body.darkMode .maximizedGif {
   -ms-flex-item-align: end;
       align-self: flex-end;
   cursor: pointer;
-  background: url("resources/assets/close.svg") center no-repeat;
+  background: url("/resources/assets/close.svg") center no-repeat;
 }
 
 body.darkMode .close-btn {
-  background: url("resources/assets/close-modo-noct.svg") center no-repeat;
+  background: url("/resources/assets/close-modo-noct.svg") center no-repeat;
 }
 
 .gif_info {
@@ -1217,45 +1210,45 @@ body.darkMode .gif_info {
 }
 
 .downloadMax {
-  background: url("resources/assets/icon-download.svg") center no-repeat;
+  background: url("/resources/assets/icon-download.svg") center no-repeat;
 }
 
 .downloadMax:hover {
-  background: url("resources/assets/icon-download-hover.svg") center no-repeat;
+  background: url("/resources/assets/icon-download-hover.svg") center no-repeat;
 }
 
 .favoriteMax {
-  background: url("resources/assets/icon-fav.svg") center no-repeat;
+  background: url("/resources/assets/icon-fav.svg") center no-repeat;
 }
 
 .favoriteMax:hover {
-  background: url("resources/assets/icon-fav-hover.svg") center no-repeat;
+  background: url("/resources/assets/icon-fav-hover.svg") center no-repeat;
 }
 
 .favoriteMax:active {
-  background: url("resources/assets/icon-fav-active.svg") center no-repeat;
+  background: url("/resources/assets/icon-fav-active.svg") center no-repeat;
 }
 
 .removeMax {
-  background: url("resources/assets/icon-trash-normal.svg") center no-repeat;
+  background: url("/resources/assets/icon-trash-normal.svg") center no-repeat;
 }
 
 .removeMax:hover {
-  background: url("resources/assets/icon-trash-hover.svg") center no-repeat;
+  background: url("/resources/assets/icon-trash-hover.svg") center no-repeat;
 }
 
 .linkOverlay {
-  background: url("resources/assets/icon-link-normal.svg") center no-repeat;
+  background: url("/resources/assets/icon-link-normal.svg") center no-repeat;
 }
 
 .linkOverlay:hover {
-  background: url("resources/assets/icon-link-hover.svg") center no-repeat;
+  background: url("/resources/assets/icon-link-hover.svg") center no-repeat;
 }
 
 .downloadOverlay {
-  background: url("resources/assets/icon-download.svg") center no-repeat;
+  background: url("/resources/assets/icon-download.svg") center no-repeat;
 }
 
 .downloadOverlay:hover {
-  background: url("resources/assets/icon-download-hover.svg") center no-repeat;
+  background: url("/resources/assets/icon-download-hover.svg") center no-repeat;
 }

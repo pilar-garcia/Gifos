@@ -1,12 +1,4 @@
-// DOM elements SEARCH
-const $searchContainer = document.querySelector('#search_container');
-const $searchResultContainer = document.querySelector('#searchResult');
-const $errorContainer = document.querySelector('#error-container');
-const $searchResultGallery = document.querySelector('#searchResult_gallery');
-const $searchTitle = document.querySelector('#searchResult_title');
-const $verMasbtn = document.querySelector('#verMas-btn');
-
-// TODO ---------------------- Búsqueda ----------------------  \\
+//---------------------- Búsqueda ----------------------  \\
 
 let offsetSearch = 0;
 
@@ -51,23 +43,26 @@ const displaySearchGif = (results) => {
 		$verMasbtn.style.display = 'none';
 	}
 
-	for (let i = 0; i < 1 /*results.data.length*/; i++) {
+	for (let i = 0; i < results.data.length; i++) {
 		const gifContainer = document.createElement('div');
 		gifContainer.classList.add('gif_container');
+
+		// TODO--- crear variables para optimizar codigo OJO
+
 		gifContainer.innerHTML = ` 
-		
+
+		<img class="gif" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')" src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
 	
 		<div class="gifActions">
-			<div class="giphy-controls">
-				<img src="resources/assets/icon-fav-active.svg" alt="icon favoritos">
-				<img src="resources/assets/icon-download.svg" alt="icon download">
-				<img src="resources/assets/icon-max-normal.svg" alt="icon maximize">	
+			<div class="gifActions_btn">
+				<div class="btn favorite" onclick="addToFav('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
+				<div class="btn download" onclick="downloadGif('${results.data[i].images.original.url}','${results.data[i].title}')"></div>
+				<div class="btn maximize" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
 			</div>
 			<div class="gif_info">
 				<p class="gif_user">${results.data[i].username}</p>
 				<p class="gif_title">${results.data[i].title}</p>
 			</div>
-			<img class="gif"  src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
 		</div>
 		`;
 		$searchResultGallery.appendChild(gifContainer);
@@ -97,7 +92,7 @@ const verMasButton = () => {
 	}
 };
 
-// TODO: --------------- Search Suggestions --------------- \\
+// --------------- Search Suggestions --------------- \\
 
 
 const getSearchSuggestions = async () => {
@@ -120,7 +115,7 @@ const getSearchSuggestions = async () => {
 };
 
 const displaySuggestions = (suggestions) => {
-	for (let i = 0; i < 1 /*suggestions.data.length*/; i++) {
+	for (let i = 0; i < suggestions.data.length; i++) {
 		const searchSuggestionItem = document.createElement('li');
 		searchSuggestionItem.classList.add('SearchSuggestions_item');
 		// con los eventos permito que se realicen busquedas al clickear la lupa o el texto

@@ -1,7 +1,8 @@
-// TODO ---------------------- GIF Actions ----------------------  \\
+//---------------------- GIF Actions ----------------------  \\
 
 // ---- Favoritear ---- \\
 let arrFavoriteGifs = [];
+let arrMyGifos = [];
 
 const addToFav = (gif, username, title) => {
 	let objGif = {
@@ -50,7 +51,7 @@ const displayFavoriteGifs = () => {
 		
 			<div class="gifActions">
 				<div class="gifActions_btn">
-					<div class="btn remove" onclick="removeGif('${arrFavoriteGifs[i].gif}')">favorite</div>
+					<div class="btn remove" onclick="removeGif('${arrFavoriteGifs[i].gif}')"></div>
 					<div class="btn download" onclick="downloadGif('${arrFavoriteGifs[i].gif}','${arrFavoriteGifs[i].title}')"></div>
 					<div class="btn maximize" onclick="maximizeFavoriteGif('${arrFavoriteGifs[i].gif}','${arrFavoriteGifs[i].username}','${arrFavoriteGifs[i].title}')"></div>
 				</div>
@@ -90,11 +91,11 @@ $misGifosMenu.addEventListener('click', displayMisGifosSection);
 const displayMiGifos = () => {
 	$misGifosContainer.innerHTML = '';
 
-	let arrMyGifos = JSON.parse(localStorage.getItem('MyGifs'));
+	arrMyGifos = JSON.parse(localStorage.getItem('MyGifs'));
 
 	console.log(arrMyGifos);
 	if (arrMyGifos == null) {
-		arrMyGifos = []; //remove
+		arrMyGifos = [];
 	} else {
 		for (let i = 0; i < arrMyGifos.length; i++) {
 			fetch(

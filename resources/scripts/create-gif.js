@@ -1,6 +1,6 @@
 /*
 
-Pasitos desglosados:
+Pasos desglosados:
 ? click en COMENZAR --> 
 	* Se "activa" el STEP 1 ($step1 cambia de estilos) ----> LISTO
 	* Cambia el titulo($crearGifTitle) ----> LISTO
@@ -38,24 +38,6 @@ Pasitos desglosados:
 
 */
 
-// DOM create GIFOs
-const $crearGifTitle = document.querySelector('#crearGif_title')
-const $crearGifText = document.querySelector('#crearGif_text');
-const $step1 = document.querySelector('#step-1');
-const $step2 = document.querySelector('#step-2');
-const $step3 = document.querySelector('#step-3');
-const $buttonComenzar = document.querySelector('#button-comenzar');
-const $buttonGrabar = document.querySelector('#button-grabar');
-const $buttonFinalizar = document.querySelector('#button-finalizar');
-const $buttonSubirGif = document.querySelector('#button-subirGif');
-const $timer = document.querySelector('#timer-recording');
-const $repeatBtn = document.querySelector('#repeatShot');
-const $overlay = document.querySelector('#overlay')
-const $overlayStatusIcon = document.querySelector('#overlay_status-icon');
-const $overlayStatusText = document.querySelector('#overlay_status-text');
-const $video = document.querySelector('#recording_video');
-const $recordedGifo = document.querySelector('#recorded_gifo');
-
 $buttonGrabar.style.display = 'none';
 $buttonFinalizar.style.display = 'none';
 $buttonSubirGif.style.display = 'none';
@@ -73,7 +55,7 @@ let hours = '00';
 let minutes = '00';
 let seconds = '00';
 
-// TODO función que ejecuta la cámara y se setea la API
+// función que ejecuta la cámara y se setea la API
 const getStreamAndRecord = async () => {
 	$crearGifTitle.innerHTML = `¿Nos das acceso <br> a tu cámara?`;
 	$crearGifText.innerHTML = `El acceso a tu camara será válido sólo <br> por el tiempo en el que estés creando el GIFO.`;
@@ -155,7 +137,7 @@ const stopCreatingGif = () => {
 
 $buttonFinalizar.addEventListener('click', stopCreatingGif);
 
-// TODO función para subir a Giphy y almacenar el gif en Mis gifos
+// función para subir a Giphy y almacenar el gif en Mis gifos
 const uploeadCreatedGif = async () => {
 	$overlay.style.display = 'flex';
 	$step2.classList.remove('step-active');
