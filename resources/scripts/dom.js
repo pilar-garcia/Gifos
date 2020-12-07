@@ -22,7 +22,7 @@ const $verMasbtn = document.querySelector('#verMas-btn');
 // --- navbar search
 const $navbarSearchGrayBtn = document.querySelector('#navbarSearch-gray-btn');
 const $navbarSearchContainer = document.querySelector(
-	'#navbarSearch__container'
+	'#navbarSearch_container'
 );
 const $navbarSearchInput = document.querySelector('#navbarSearch_input');
 const $navbarSearchBtn = document.querySelector('#navbarSearch_icon');
