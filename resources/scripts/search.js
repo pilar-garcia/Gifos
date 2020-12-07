@@ -44,24 +44,26 @@ const displaySearchGif = (results) => {
 	}
 
 	for (let i = 0; i < results.data.length; i++) {
+		let showGif = results.data[i];
+		let showGifImages = showGif.images.original.url;
+		let showGifUsername = showGif.username;
+		let showGifTitle = showGif.title;
+
 		const gifContainer = document.createElement('div');
 		gifContainer.classList.add('gif_container');
-
-		// TODO--- crear variables para optimizar codigo OJO
-
 		gifContainer.innerHTML = ` 
 
-		<img class="gif" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')" src="${results.data[i].images.original.url}" alt="${results.data[i].title}">
+		<img class="gif" onclick="maximizeGif('${showGifImages}','${showGifUsername}','${showGifTitle}')" src="${showGifImages}" alt="${showGifTitle}">
 	
 		<div class="gifActions">
 			<div class="gifActions_btn">
-				<div class="btn favorite" onclick="addToFav('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
-				<div class="btn download" onclick="downloadGif('${results.data[i].images.original.url}','${results.data[i].title}')"></div>
-				<div class="btn maximize" onclick="maximizeGif('${results.data[i].images.original.url}','${results.data[i].username}','${results.data[i].title}')"></div>
+				<div class="btn favorite" onclick="addToFav('${showGifImages}','${showGifUsername}','${showGifTitle}')"></div>
+				<div class="btn download" onclick="downloadGif('${showGifImages}','${showGifTitle}')"></div>
+				<div class="btn maximize" onclick="maximizeGif('${showGifImages}','${showGifUsername}','${showGifTitle}')"></div>
 			</div>
 			<div class="gif_info">
-				<p class="gif_user">${results.data[i].username}</p>
-				<p class="gif_title">${results.data[i].title}</p>
+				<p class="gif_user">${showGifUsername}</p>
+				<p class="gif_title">${showGifTitle}</p>
 			</div>
 		</div>
 		`;
@@ -116,12 +118,13 @@ const getSearchSuggestions = async () => {
 
 const displaySuggestions = (suggestions) => {
 	for (let i = 0; i < suggestions.data.length; i++) {
+		let searchGif = suggestions.data[i].name;
 		const searchSuggestionItem = document.createElement('li');
 		searchSuggestionItem.classList.add('SearchSuggestions_item');
 		// con los eventos permito que se realicen busquedas al clickear la lupa o el texto
 		searchSuggestionItem.innerHTML = `
-		<img class="search_btnGray" id="" src="resources/assets/icon-search-gray.svg" alt="Boton Buscar" onclick="getSearch('${suggestions.data[i].name}')">
-		<p class="search_Text" onclick="getSearch('${suggestions.data[i].name}')">${suggestions.data[i].name}</p>`;
+		<img class="search_btnGray" id="" src="resources/assets/icon-search-gray.svg" alt="Boton Buscar" onclick="getSearch('${searchGif}')">
+		<p class="search_Text" onclick="getSearch('${searchGif}')">${searchGif}</p>`;
 		$searchSuggestionList.appendChild(searchSuggestionItem);
 	}
 };
