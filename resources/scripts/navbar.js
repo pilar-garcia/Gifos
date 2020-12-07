@@ -1,16 +1,3 @@
-// DOM elements navbar
-const $logoSection = document.querySelector('#logoSection')
-const $headerContainer = document.querySelector('#header_container');
-const $navbarList = document.querySelector('#navbar_list');
-const $burgerMenu = document.querySelector('#navbar_burger');
-const $logo = document.querySelector('#logo');
-const $switchThemeBtn = document.querySelector('#switchTheme');
-const $crearGifBtn = document.querySelector('#crateGifBtn');
-const $favoritosMenu = document.querySelector('#FavoritosMenu');
-const $heroSection = document.querySelector('#heroSection');
-const $misGifosMenu = document.querySelector('#misGifosMenu');
-const $crearGifosMenu = document.querySelector('#crearGifosMenu');
-
 //--muestra el menu hamburguesa y lo setea de acuerdo al theme elegido
 const displayBurgerMenu = () => {
 	if (localStorage.getItem('dark-mode') === 'true') {

@@ -1,4 +1,4 @@
-// TODO ---------------------- GIF Actions ----------------------  \\
+//---------------------- GIF Actions ----------------------  \\
 
 // ---- Favoritear ---- \\
 let arrFavoriteGifs = [];
@@ -43,20 +43,25 @@ const displayFavoriteGifs = () => {
 		arrFavoriteGifs = [];
 	} else {
 		for (let i = 0; i < arrFavoriteGifs.length; i++) {
+			let favGif = arrFavoriteGifs[i];
+			let gifyFav = favGif.gif;
+			let usernameFav = favGif.username;
+			let titleFav = favGif.title;
+
 			const gifContainer = document.createElement('div');
 			gifContainer.classList.add('gif_container');
 			gifContainer.innerHTML = ` 
-			<img class="gif" onclick="maximizeFavoriteGif('${arrFavoriteGifs[i].gif}','${arrFavoriteGifs[i].username}','${arrFavoriteGifs[i].title}')" src="${arrFavoriteGifs[i].gif}" alt="${arrFavoriteGifs[i].title}">
+			<img class="gif" onclick="maximizeFavoriteGif('${gifyFav}','${usernameFav}','${titleFav}')" src="${gifyFav}" alt="${titleFav}">
 		
 			<div class="gifActions">
 				<div class="gifActions_btn">
-					<div class="btn remove" onclick="removeGif('${arrFavoriteGifs[i].gif}')">favorite</div>
-					<div class="btn download" onclick="downloadGif('${arrFavoriteGifs[i].gif}','${arrFavoriteGifs[i].title}')"></div>
-					<div class="btn maximize" onclick="maximizeFavoriteGif('${arrFavoriteGifs[i].gif}','${arrFavoriteGifs[i].username}','${arrFavoriteGifs[i].title}')"></div>
+					<div class="btn remove" onclick="removeGif('${gifyFav}')"></div>
+					<div class="btn download" onclick="downloadGif('${gifyFav}','${titleFav}')"></div>
+					<div class="btn maximize" onclick="maximizeFavoriteGif('${gifyFav}','${usernameFav}','${titleFav}')"></div>
 				</div>
 				<div class="gif_info">
-					<p class="gif_user">${arrFavoriteGifs[i].username}</p>
-					<p class="gif_title">${arrFavoriteGifs[i].title}</p>
+					<p class="gif_user">${usernameFav}</p>
+					<p class="gif_title">${titleFav}</p>
 				</div>
 			</div>
 			`;
@@ -90,31 +95,32 @@ $misGifosMenu.addEventListener('click', displayMisGifosSection);
 const displayMiGifos = () => {
 	$misGifosContainer.innerHTML = '';
 
-	let arrMyGifos = JSON.parse(localStorage.getItem('MyGifs'));
+	let arrMyGif = JSON.parse(localStorage.getItem('MyGifs'));
 
-	console.log(arrMyGifos);
-	if (arrMyGifos == null) {
-		arrMyGifos = []; //remove
-	} else {
-		for (let i = 0; i < arrMyGifos.length; i++) {
+	console.log(arrMyGif);
+	if (arrMyGif != null) {
+		for (let i = 0; i < arrMyGif.length; i++) {
 			fetch(
-				`${getGifByIdEndpoint}?ids=${arrMyGifos[i]}&api_key=${apiKey}`
+				`${getGifByIdEndpoint}?ids=${arrMyGif[i]}&api_key=${apiKey}`
 			)
 				.then((response) => response.json())
 				.then((misGifosGiphy) => {
-					console.log(misGifosGiphy);
-					console.log(typeof misGifosGiphy.data[0].id);
+					let giphyGif = misGifosGiphy.data[0];
+					let imagesGiphy = giphyGif.images.original.url;
+					let idGiphy = giphyGif.id;
 
+					console.log(misGifosGiphy);
+					console.log(typeof idGiphy);
 					const gifContainer = document.createElement('div');
 					gifContainer.classList.add('gif_container');
 					gifContainer.innerHTML = `
-					<img class="gif" src="${misGifosGiphy.data[0].images.original.url}" alt="Gif Creado por el usuario">
+					<img class="gif" src="${imagesGiphy}" alt="Gif Creado por el usuario">
 
 					<div class="gifActions">
 						<div class="gifActions_btn">
-							<div class="btn remove" onclick="removeMyGifos('${misGifosGiphy.data[0].id}')"></div>
-							<div class="btn download" onclick="downloadGif('${misGifosGiphy.data[0].images.original.url}','Gif')"></div>
-							<div class="btn maximize" onclick="maximizeFavoriteGif('${misGifosGiphy.data[0].images.original.url}','User','Gif')"></div>
+							<div class="btn remove" onclick="removeMyGifos('${idGiphy}')"></div>
+							<div class="btn download" onclick="downloadGif('${imagesGiphy}','Gif')"></div>
+							<div class="btn maximize" onclick="maximizeFavoriteGif('${imagesGiphy}','User','Gif')"></div>
 						</div>
 						<div class="gif_info">
 							<p class="gif_user">User</p>
